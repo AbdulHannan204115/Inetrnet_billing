@@ -1,0 +1,45 @@
+﻿@model IEnumerable<cust_enrty.Models.charges_info>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.charges)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_charges)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.charges)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_charges)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.fee_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.fee_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.fee_id })
+        </td>
+    </tr>
+}
+
+</table>

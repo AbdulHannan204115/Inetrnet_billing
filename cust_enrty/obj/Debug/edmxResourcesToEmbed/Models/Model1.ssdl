@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cust_indicationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="amin_id" />
+    </Key>
+    <Property Name="amin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="confirm_password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="allocate">
+    <Key>
+      <PropertyRef Name="allocate_id" />
+    </Key>
+    <Property Name="allocate_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="amin_id" Type="int" />
+    <Property Name="cust_id" Type="int" />
+    <Property Name="fee_id" Type="int" />
+    <Property Name="Date" Type="varchar" MaxLength="40" />
+    <Property Name="paid_id" Type="int" />
+  </EntityType>
+  <EntityType Name="charges_info">
+    <Key>
+      <PropertyRef Name="fee_id" />
+    </Key>
+    <Property Name="fee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="charges" Type="int" />
+    <Property Name="discount" Type="int" />
+    <Property Name="total_charges" Type="int" />
+  </EntityType>
+  <EntityType Name="customer_info">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="father_name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="cnic" Type="nchar" MaxLength="15" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="paid">
+    <Key>
+      <PropertyRef Name="paid_id" />
+    </Key>
+    <Property Name="paid_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__allocate__paid_i__36B12243">
+    <End Role="paid" Type="Self.paid" Multiplicity="0..1" />
+    <End Role="allocate" Type="Self.allocate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paid">
+        <PropertyRef Name="paid_id" />
+      </Principal>
+      <Dependent Role="allocate">
+        <PropertyRef Name="paid_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_allocate_admin">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="allocate" Type="Self.allocate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="amin_id" />
+      </Principal>
+      <Dependent Role="allocate">
+        <PropertyRef Name="amin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_allocate_allocate">
+    <End Role="allocate" Type="Self.allocate" Multiplicity="1" />
+    <End Role="allocate1" Type="Self.allocate" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="allocate">
+        <PropertyRef Name="allocate_id" />
+      </Principal>
+      <Dependent Role="allocate1">
+        <PropertyRef Name="allocate_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_allocate_charges_info">
+    <End Role="charges_info" Type="Self.charges_info" Multiplicity="0..1" />
+    <End Role="allocate" Type="Self.allocate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="charges_info">
+        <PropertyRef Name="fee_id" />
+      </Principal>
+      <Dependent Role="allocate">
+        <PropertyRef Name="fee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_allocate_customer_info">
+    <End Role="customer_info" Type="Self.customer_info" Multiplicity="0..1" />
+    <End Role="allocate" Type="Self.allocate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer_info">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="allocate">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cust_indicationModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="allocate" EntityType="Self.allocate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="charges_info" EntityType="Self.charges_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_info" EntityType="Self.customer_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paid" EntityType="Self.paid" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__allocate__paid_i__36B12243" Association="Self.FK__allocate__paid_i__36B12243">
+      <End Role="paid" EntitySet="paid" />
+      <End Role="allocate" EntitySet="allocate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_allocate_admin" Association="Self.FK_allocate_admin">
+      <End Role="admin" EntitySet="admin" />
+      <End Role="allocate" EntitySet="allocate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_allocate_allocate" Association="Self.FK_allocate_allocate">
+      <End Role="allocate" EntitySet="allocate" />
+      <End Role="allocate1" EntitySet="allocate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_allocate_charges_info" Association="Self.FK_allocate_charges_info">
+      <End Role="charges_info" EntitySet="charges_info" />
+      <End Role="allocate" EntitySet="allocate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_allocate_customer_info" Association="Self.FK_allocate_customer_info">
+      <End Role="customer_info" EntitySet="customer_info" />
+      <End Role="allocate" EntitySet="allocate" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

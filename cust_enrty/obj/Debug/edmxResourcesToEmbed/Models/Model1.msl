@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cust_indicationModelStoreContainer" CdmEntityContainer="cust_indicationEntities1">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="cust_indicationModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="amin_id" ColumnName="amin_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="confirm_password" ColumnName="confirm_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allocates">
+      <EntityTypeMapping TypeName="cust_indicationModel.allocate">
+        <MappingFragment StoreEntitySet="allocate">
+          <ScalarProperty Name="paid_id" ColumnName="paid_id" />
+          <ScalarProperty Name="allocate_id" ColumnName="allocate_id" />
+          <ScalarProperty Name="amin_id" ColumnName="amin_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="fee_id" ColumnName="fee_id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="charges_info">
+      <EntityTypeMapping TypeName="cust_indicationModel.charges_info">
+        <MappingFragment StoreEntitySet="charges_info">
+          <ScalarProperty Name="fee_id" ColumnName="fee_id" />
+          <ScalarProperty Name="charges" ColumnName="charges" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="total_charges" ColumnName="total_charges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_info">
+      <EntityTypeMapping TypeName="cust_indicationModel.customer_info">
+        <MappingFragment StoreEntitySet="customer_info">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="father_name" ColumnName="father_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="cnic" ColumnName="cnic" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paids">
+      <EntityTypeMapping TypeName="cust_indicationModel.paid">
+        <MappingFragment StoreEntitySet="paid">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="paid_id" ColumnName="paid_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

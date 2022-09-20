@@ -1,0 +1,30 @@
+﻿<style>
+    button:hover{
+        color:white;
+        background-color:darkturquoise;
+        
+    }
+   *{
+     
+   }
+    
+</style>
+
+<p>
+@using (Html.BeginForm())
+{
+
+    <b>@Html.DisplayName("User-Name")</b>
+    <br />
+    @Html.TextBox("name")
+    @Html.ValidationMessage("name", "")
+    <br />
+    <b>@Html.DisplayName("Password")</b>
+    <br />
+    @Html.Password("pass")
+    @Html.ValidationMessage("pass", "")
+    <br />
+    <button> Submit</button>
+    }
+
+    </p>

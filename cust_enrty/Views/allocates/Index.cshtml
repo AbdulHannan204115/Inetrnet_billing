@@ -1,0 +1,94 @@
+﻿@model IEnumerable<cust_enrty.Models.allocate>
+
+@using (Html.BeginForm())
+{
+    <label>Enter Name:</label><br />
+    <input type="text" name="nam" />
+    <input type="submit"  value="Search"/>
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.allocate_id)
+        </th>
+        <th>
+            @Html.DisplayName("Admin_Name")
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.charges_info.fee_id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.customer_info.name)
+        </th>
+        <th>
+            @Html.DisplayName("Paid_Status")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allocate2.Date)
+        </th>
+        <th>
+            Color
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.allocate_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.admin.name)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.charges_info.fee_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.customer_info.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.paid_id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.allocate2.Date)
+    </td>
+    @{
+
+        if (item.paid_id.Equals(1))
+        {
+            <td style="background-color:green">
+            </td>
+        }
+        else
+        {
+            <td style="background-color:red">
+            </td>
+        }
+
+    }
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.allocate_id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.allocate_id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.allocate_id })
+    </td>
+</tr>
+}
+
+</table>

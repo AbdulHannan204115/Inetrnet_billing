@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f719dc91fca4279ba731d439214af35" Name="Diagram1">
+        <EntityTypeShape EntityType="cust_indicationModel.admin" Width="1.5" PointX="1.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cust_indicationModel.allocate" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cust_indicationModel.charges_info" Width="1.5" PointX="1.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cust_indicationModel.customer_info" Width="1.5" PointX="5.5" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="cust_indicationModel.FK_allocate_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="cust_indicationModel.FK_allocate_allocate" ManuallyRouted="false" />
+        <AssociationConnector Association="cust_indicationModel.FK_allocate_charges_info" ManuallyRouted="false" />
+        <AssociationConnector Association="cust_indicationModel.FK_allocate_customer_info" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cust_indicationModel.paid" Width="1.5" PointX="3.875" PointY="4.5" />
+        <AssociationConnector Association="cust_indicationModel.FK__allocate__paid_i__36B12243" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

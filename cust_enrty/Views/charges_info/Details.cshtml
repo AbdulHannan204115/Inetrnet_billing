@@ -1,0 +1,42 @@
+﻿@model cust_enrty.Models.charges_info
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>charges_info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.charges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.charges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_charges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_charges)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fee_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
