@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 namespace cust_enrty.Models
 {
     using System;
@@ -21,8 +23,12 @@ namespace cust_enrty.Models
         }
     
         public int amin_id { get; set; }
+        [Required(ErrorMessage ="Enter Your Name")]
         public string name { get; set; }
+        [Required(ErrorMessage = "Enter Your password")]
         public string password { get; set; }
+        [Required(ErrorMessage = "Enter Confirm Password")]
+        [Compare("password",ErrorMessage ="PAssword and confirm password isn't same")]
         public string confirm_password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

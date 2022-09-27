@@ -33,7 +33,7 @@ namespace cust_enrty.Controllers
             var sea = db.allocates.Where(model => model.customer_info.name.StartsWith(nam)).ToList();
             return View(sea);
         }
-
+        
         // GET: allocates/Details/5
         public ActionResult Details(int? id)
         {
@@ -78,7 +78,7 @@ namespace cust_enrty.Controllers
             ViewBag.amin_id = new SelectList(db.admins, "amin_id", "name", allocate.amin_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
-            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "total_charges", allocate.fee_id);
+            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "total_charges");
             ViewBag.cust_id = new SelectList(db.customer_info, "cust_id", "name", allocate.cust_id);
             ViewBag.paid_id = new SelectList(db.paids, "paid_id", "status",allocate.paid_id);
             return View(allocate);
@@ -99,8 +99,9 @@ namespace cust_enrty.Controllers
             ViewBag.amin_id = new SelectList(db.admins, "amin_id", "name", allocate.amin_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
-            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "fee_id", allocate.fee_id);
+            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "total_charges");
             ViewBag.cust_id = new SelectList(db.customer_info, "cust_id", "name", allocate.cust_id);
+            ViewBag.paid_id = new SelectList(db.paids, "paid_id", "status");
             return View(allocate);
         }
 
@@ -109,7 +110,7 @@ namespace cust_enrty.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "allocate_id,amin_id,cust_id,fee_id,Date")] allocate allocate)
+        public ActionResult Edit([Bind(Include = "allocate_id,amin_id,cust_id,fee_id,total_charges,Date,paid_id")] allocate allocate)
         {
             if (ModelState.IsValid)
             {
@@ -120,8 +121,9 @@ namespace cust_enrty.Controllers
             ViewBag.amin_id = new SelectList(db.admins, "amin_id", "name", allocate.amin_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
             ViewBag.allocate_id = new SelectList(db.allocates, "allocate_id", "Date", allocate.allocate_id);
-            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "fee_id", allocate.fee_id);
+            ViewBag.fee_id = new SelectList(db.charges_info, "fee_id", "total_charges", allocate.fee_id);
             ViewBag.cust_id = new SelectList(db.customer_info, "cust_id", "name", allocate.cust_id);
+            ViewBag.paid_id = new SelectList(db.paids, "paid_id", "status", allocate.paid_id);
             return View(allocate);
         }
 

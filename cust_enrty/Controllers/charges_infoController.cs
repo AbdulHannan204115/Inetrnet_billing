@@ -51,8 +51,10 @@ namespace cust_enrty.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "fee_id,charges,discount,total_charges")] charges_info charges_info)
+        public ActionResult Create([Bind(Include = "fee_id,charges,discount,total_charges")] charges_info charges_info )
         {
+
+            
             if (ModelState.IsValid)
             {
                 db.charges_info.Add(charges_info);

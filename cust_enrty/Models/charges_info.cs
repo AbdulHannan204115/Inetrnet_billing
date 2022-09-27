@@ -6,7 +6,8 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 namespace cust_enrty.Models
 {
     using System;
@@ -21,8 +22,12 @@ namespace cust_enrty.Models
         }
     
         public int fee_id { get; set; }
+       
+        [Required(ErrorMessage = "Enter Charges")]
         public Nullable<int> charges { get; set; }
+        [Required(ErrorMessage = "Enter Discount!! if there is no discount then write '0' ")]
         public Nullable<int> discount { get; set; }
+        [Required(ErrorMessage = "Enter Total Charges")]
         public Nullable<int> total_charges { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
